@@ -1,6 +1,6 @@
 # JASPIS - JAva Snap! raspberry Pi gpIo Server
 
-[Jaspis[(https://pl.wikipedia.org/wiki/Jaspis) is commonly red mineral. In English it is called [jasper](https://en.wikipedia.org/wiki/Jasper).
+[Jaspis](https://pl.wikipedia.org/wiki/Jaspis) is commonly red mineral. In English it is called [jasper](https://en.wikipedia.org/wiki/Jasper).
 
 This project 
 
@@ -45,11 +45,11 @@ Snap! runs like molasses on the RPi. Don't do that. Until the performance issues
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md]() for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/pawellabaj/jaspis/tags).
 
 ## Authors
 
@@ -57,11 +57,11 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.tx](LICENSE.txt) file for details
+This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/pawellabaj/jaspis/LICENSE.txt) file for details
 
 ## Acknowledgments
 
-1 A web-based alternative to Scratch, Paul Brown's article inspired to create this project: http://www.raspberry-pi-geek.com/Archive/2014/06/A-web-based-alternative-to-Scratch
-1 Snap! homepage: http://byob.berkeley.edu/
-1 GitHub site for Snap!: https://github.com/jmoenig/Snap--Build-Your-Own-Blocks.git
-1 RPiGPIO, Puthon connector: https://github.com/pbrown66/snap-RPi 
+1. A web-based alternative to Scratch, Paul Brown's article inspired to create this project: http://www.raspberry-pi-geek.com/Archive/2014/06/A-web-based-alternative-to-Scratch
+1. Snap! homepage: http://byob.berkeley.edu/
+1. GitHub site for Snap!: https://github.com/jmoenig/Snap--Build-Your-Own-Blocks.git
+1. RPiGPIO, Python connector: https://github.com/pbrown66/snap-RPi
