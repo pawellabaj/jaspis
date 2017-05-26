@@ -1,2 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
+/jaspis.iml
 /.idea/
+/.m2/
+/target/
+/.gitignore

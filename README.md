@@ -64,4 +64,5 @@ This project is licensed under the MIT License - see the [LICENSE.txt](https://g
 1. A web-based alternative to Scratch, Paul Brown's article inspired to create this project: http://www.raspberry-pi-geek.com/Archive/2014/06/A-web-based-alternative-to-Scratch
 1. Snap! homepage: http://byob.berkeley.edu/
 1. GitHub site for Snap!: https://github.com/jmoenig/Snap--Build-Your-Own-Blocks.git
+1. Pi4J, Java I/O libraray for the Raspberry Pi http://pi4j.com/
 1. RPiGPIO, Python connector: https://github.com/pbrown66/snap-RPi
