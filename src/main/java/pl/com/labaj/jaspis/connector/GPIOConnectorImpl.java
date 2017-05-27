@@ -1,4 +1,4 @@
-package pl.com.labaj.jaspis.controller;
+package pl.com.labaj.jaspis.connector;
 
 import com.pi4j.io.gpio.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,24 +7,29 @@ import pl.com.labaj.jaspis.log.LoggerFactory;
 import pl.com.labaj.jaspis.numbering.PinNumbering;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import static com.pi4j.io.gpio.PinMode.DIGITAL_OUTPUT;
+import static java.util.stream.Collectors.toList;
 import static pl.com.labaj.jaspis.log.Message.msg;
 
-public class GPIOControllerImpl implements GPIOController {
+public class GPIOConnectorImpl implements GPIOConnector {
     private Logger logger = LoggerFactory.createLogger(getClass());
 
     private Map<Integer, Optional<? extends GpioPin>> pins = new HashMap<>();
 
     @Autowired
-    private
-    PinNumbering pinNumbering;
+    private PinNumbering pinNumbering;
 
     @Autowired
-    private
-    GpioController gpioController;
+    private GpioController gpioController;
+
+    @Override
+    public void configure(List<PinConfig> configList) {
+        configList.forEach(this::configure);
+    }
 
     @Override
     public void configure(PinConfig pinConfig) {
@@ -82,6 +87,14 @@ public class GPIOControllerImpl implements GPIOController {
                 .filter(GpioPinDigitalOutput.class::isInstance)
                 .map(GpioPinDigitalOutput.class::cast)
                 .map(GpioPinDigital::getState);
+    }
+
+    @Override
+    public String printConfiguration() {
+        return pins.entrySet().stream()
+                .map(entry -> entry.getKey() + " : " + (entry.getValue().isPresent() ? entry.getValue().get() : "NONE"))
+                .collect(toList())
+                .toString();
     }
 
     private void configureDigitalOutputIfMissing(int number) {
