@@ -4,8 +4,7 @@ public class Message {
     private String pattern;
     private Object[] arguments;
 
-    @SuppressWarnings("WeakerAccess")
-    public Message(String pattern, Object... arguments) {
+    private Message(String pattern, Object... arguments) {
         this.pattern = pattern;
         this.arguments = arguments;
     }

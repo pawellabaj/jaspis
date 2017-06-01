@@ -25,7 +25,7 @@ public class Logger {
 
 
     public void error(Supplier<Message> messageSupplier) {
-        if (logger.isInfoEnabled()) {
+        if (logger.isErrorEnabled()) {
             Message message = messageSupplier.get();
             logger.error(message.getPattern(), message.getArguments());
         }

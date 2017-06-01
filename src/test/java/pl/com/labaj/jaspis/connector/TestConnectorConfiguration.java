@@ -1,15 +1,11 @@
 package pl.com.labaj.jaspis.connector;
 
-import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.GpioPinDigitalOutput;
-import com.pi4j.io.gpio.Pin;
-import com.pi4j.io.gpio.PinState;
+import com.pi4j.io.gpio.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import pl.com.labaj.jaspis.numbering.PinNumbering;
-import pl.com.labaj.jaspis.numbering.RaspiBcmPinNumbering;
 
+import static com.pi4j.io.gpio.PinMode.DIGITAL_OUTPUT;
 import static com.pi4j.io.gpio.PinState.HIGH;
 import static com.pi4j.io.gpio.PinState.LOW;
 import static org.mockito.ArgumentMatchers.any;
@@ -33,6 +29,9 @@ public class TestConnectorConfiguration {
                 .when(gpioPinDigitalOutputMock).high();
         doAnswer(invocationOnMock -> pinState[0] = LOW)
                 .when(gpioPinDigitalOutputMock).low();
+
+        doAnswer(invocationOnMock -> DIGITAL_OUTPUT)
+                .when(gpioPinDigitalOutputMock).getMode();
 
         doAnswer(invocationOnMock -> pinState[0] = pinState[0] == HIGH ? LOW : HIGH)
                 .when(gpioPinDigitalOutputMock).toggle();

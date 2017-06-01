@@ -2,7 +2,12 @@ package pl.com.labaj.jaspis.connector;
 
 import com.pi4j.io.gpio.PinMode;
 
-public class PinConfig {
+import java.io.Serializable;
+
+//@XmlRootElement
+//@JsonRootName("pinConfig")
+public class PinConfig implements Serializable {
+    public static final String NONE = "NONE";
     private int number;
     private PinMode mode;
 
@@ -15,7 +20,7 @@ public class PinConfig {
         this.mode = mode;
     }
 
-    static PinConfig pin(int number, PinMode mode) {
+    public static PinConfig pin(int number, PinMode mode) {
         return new PinConfig(number, mode);
     }
 

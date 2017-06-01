@@ -2,13 +2,10 @@ package pl.com.labaj.jaspis.connector;
 
 import com.pi4j.io.gpio.PinState;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface GPIOConnector {
-    void configure(List<PinConfig> configList);
-
-    void configure(PinConfig pinConfig);
+    void configure(PinConfig... pinConfigs);
 
     void high(int number);
 

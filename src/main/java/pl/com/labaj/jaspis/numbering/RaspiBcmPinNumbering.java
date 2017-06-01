@@ -12,7 +12,7 @@ import static pl.com.labaj.jaspis.log.Message.msg;
 
 public class RaspiBcmPinNumbering implements PinNumbering {
 
-    private Logger logger = LoggerFactory.createLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(RaspiBcmPinNumbering.class);
 
     @Override
     public Optional<Pin> getPin(int number) {

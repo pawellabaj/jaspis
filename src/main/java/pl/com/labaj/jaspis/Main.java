@@ -1,11 +1,11 @@
 package pl.com.labaj.jaspis;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pl.com.labaj.jaspis.server.ServerConfiguration;
+import pl.com.labaj.jaspis.server.Server;
 
 public class Main {
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ServerConfiguration.class);
-        context.start();
+    public static void main(String[] args) throws InterruptedException {
+        Server server = new Server();
+
+        server.start();
     }
 }

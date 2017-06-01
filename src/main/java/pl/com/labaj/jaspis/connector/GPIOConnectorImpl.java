@@ -7,16 +7,17 @@ import pl.com.labaj.jaspis.log.LoggerFactory;
 import pl.com.labaj.jaspis.numbering.PinNumbering;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import static com.pi4j.io.gpio.PinMode.DIGITAL_OUTPUT;
+import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
+import static pl.com.labaj.jaspis.connector.PinConfig.NONE;
 import static pl.com.labaj.jaspis.log.Message.msg;
 
 public class GPIOConnectorImpl implements GPIOConnector {
-    private Logger logger = LoggerFactory.createLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(GPIOConnectorImpl.class);
 
     private Map<Integer, Optional<? extends GpioPin>> pins = new HashMap<>();
 
@@ -27,12 +28,11 @@ public class GPIOConnectorImpl implements GPIOConnector {
     private GpioController gpioController;
 
     @Override
-    public void configure(List<PinConfig> configList) {
-        configList.forEach(this::configure);
+    public void configure(PinConfig... pinConfigs) {
+        stream(pinConfigs).forEach(this::configure);
     }
 
-    @Override
-    public void configure(PinConfig pinConfig) {
+    private void configure(PinConfig pinConfig) {
         int number = pinConfig.getNumber();
         PinMode pinMode = pinConfig.getMode();
 
@@ -86,13 +86,13 @@ public class GPIOConnectorImpl implements GPIOConnector {
         return pins.get(number)
                 .filter(GpioPinDigitalOutput.class::isInstance)
                 .map(GpioPinDigitalOutput.class::cast)
-                .map(GpioPinDigital::getState);
+                .map(GpioPinDigitalOutput::getState);
     }
 
     @Override
     public String printConfiguration() {
         return pins.entrySet().stream()
-                .map(entry -> entry.getKey() + " : " + (entry.getValue().isPresent() ? entry.getValue().get() : "NONE"))
+                .map(entry -> entry.getKey() + " : " + (entry.getValue().isPresent() ? entry.getValue().get().getMode() : NONE))
                 .collect(toList())
                 .toString();
     }
